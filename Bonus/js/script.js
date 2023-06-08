@@ -1,4 +1,3 @@
-
 const { createApp } = Vue
 
 createApp({
@@ -30,10 +29,7 @@ createApp({
         
   },
   created() {
-    this.autoScroll= setInterval(()=>{
-        this.nextImg()
-
-    }, 3000)
+    this.startAutoScroll();
   },
   methods: {
     selectImage(i){
@@ -50,7 +46,16 @@ createApp({
         if(this.selectArray<0){
             this.selectArray= this.slides.length - 1
         }
-    }
+    },
+    stopAutoScroll(){
+        clearInterval(this.autoScroll)
+    },
+    startAutoScroll(){
+        this.autoScroll= setInterval(()=>{
+            this.nextImg();
+        }, 3000)
+    },
+   
 
   },
 }).mount('#app')
