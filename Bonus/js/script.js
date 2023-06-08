@@ -29,6 +29,12 @@ createApp({
         }
         
   },
+  created() {
+    this.autoScroll= setInterval(()=>{
+        this.nextImg()
+
+    }, 3000)
+  },
   methods: {
     selectImage(i){
         this.selectArray = i
